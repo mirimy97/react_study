@@ -7,10 +7,9 @@
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
-    function Btn({ text, changeValue }) {
+    function Btn({ banana }) {
       return (
         <button
-          onClick={changeValue}
           style={{
             backgroundColor: "tomato",
             color: "white",
@@ -19,23 +18,16 @@
             borderRadius: 10,
           }}
         >
-          {text}
+          {banana}
         </button>
       );
     }
-    // Btn 대신에 re-Rendering 됨
-    const MemorizedBtn = React.memo(Btn);
 
-    // 컴포넌트 내의 state가 변경될 때, 새 data를 가지고 return (); 안의 모든 값이 re-rendering 된다.
     function App() {
-      const [value, setValue] = React.useState("Save Changes");
-      const changeValue = () => setValue("Revert Changes");
-      // 위 Btn 이 value (state)의 변화에 따라 App() 내의 모든 요소가 re-render 되기 때문에 아래 Btn은 변경될 필요가 없다.
-      // -> react - memo 활용 (MemorizedBtn)
       return (
         <div>
-          <MemorizedBtn text={value} changeValue={changeValue} />
-          <MemorizedBtn text="Continue" />
+          <Btn banana="Save Changes" x={false} />
+          <Btn banana="Continue" y={7} />
         </div>
       );
     }
