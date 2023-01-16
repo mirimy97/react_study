@@ -9,8 +9,7 @@
   <!-- prop-types: 어떤 타입의 props를 받고 있는지 체크.  -->
   <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
-    // fontSize 기본값 = 8
-    function Btn({ text, fontSize = 8 }) {
+    function Btn({ text, fontSize }) {
       return (
         <button
           style={{
@@ -36,7 +35,7 @@
       return (
         <div>
           <Btn text="Save Changes" fontSize={18} />
-          <Btn text={"Continue"} />
+          <Btn text={14} fontSize="18" />
         </div>
       );
     }
