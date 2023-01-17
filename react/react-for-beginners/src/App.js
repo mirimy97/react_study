@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Detail from "./routes/Detail";
 import Home from "./routes/Home";
+import OpenVidu from "./routes/OpenVidu";
 
 function App() {
   return (
@@ -8,6 +9,9 @@ function App() {
       <Switch>
         <Route path="/hello">
           <h1>Hello</h1>
+        </Route>
+        <Route path="/openvidu">
+          <OpenVidu />
         </Route>
         <Route path="/movie/:id">
           <Detail />
