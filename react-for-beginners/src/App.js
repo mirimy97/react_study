@@ -1,24 +1,22 @@
-import { useState, useEffect } from "react";
-
-function Hello() {
-  useEffect(() => {
-    console.log("created :)");
-    // component가 없어질 때 뭔가를 하고싶다면?
-    return () => console.log("destroyed :(");
-  }, []);
-  return <h1>Hello</h1>;
-}
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Detail from "./routes/Detail";
+import Home from "./routes/Home";
 
 function App() {
-  const [showing, setShowing] = useState(false);
-  const onClick = () => {
-    setShowing((prev) => !prev);
-  };
   return (
-    <div>
-      {showing ? <Hello /> : null}
-      <button onClick={onClick}>{showing ? "Hide" : "Show"}</button>
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/hello">
+          <h1>Hello</h1>
+        </Route>
+        <Route path="/movie/:id">
+          <Detail />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
